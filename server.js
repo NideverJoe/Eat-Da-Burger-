@@ -45,7 +45,7 @@ app.get("/", function(req, res) {
 
 // Create a new burger
 app.post("/api/burgers", function(req, res) {
-  connection.query("INSERT INTO burgers (burger) VALUES (?)", [req.body.burger], function(err, result) {
+  connection.query("INSERT INTO burgers (burger, eaten) VALUES (?, ?)", [req.body.burger, 0], function(err, result) {
     if (err) {
       return res.status(500).end();
     }
@@ -58,7 +58,7 @@ app.post("/api/burgers", function(req, res) {
 
 // Update a burger
 app.put("/api/burgers/:id", function(req, res) {
-  connection.query("UPDATE burgers SET burger = ? WHERE id = ?", [req.body.burger, req.params.id], function(err, result) {
+  connection.query("UPDATE burgers SET eaten = ? WHERE id = ?", [1, this.data-id], function(err, result) {
     if (err) {
       // If an error occurred, send a generic server failure
       return res.status(500).end();
@@ -72,21 +72,21 @@ app.put("/api/burgers/:id", function(req, res) {
   });
 });
 
-// Delete a burger
-app.delete("/api/burgers/:id", function(req, res) {
-  connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function(err, result) {
-    if (err) {
-      // If an error occurred, send a generic server failure
-      return res.status(500).end();
-    }
-    else if (result.affectedRows === 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    }
-    res.status(200).end();
+// // Delete a burger
+// app.delete("/api/burgers/:id", function(req, res) {
+//   connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function(err, result) {
+//     if (err) {
+//       // If an error occurred, send a generic server failure
+//       return res.status(500).end();
+//     }
+//     else if (result.affectedRows === 0) {
+//       // If no rows were changed, then the ID must not exist, so 404
+//       return res.status(404).end();
+//     }
+//     res.status(200).end();
 
-  });
-});
+//   });
+// });
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

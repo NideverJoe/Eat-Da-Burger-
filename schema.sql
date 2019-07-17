@@ -22,8 +22,9 @@ USE BurgerDB;
 CREATE TABLE burgers (
   id int NOT NULL AUTO_INCREMENT,
   burger varchar(255) NOT NULL,
+  eaten boolean not NULL,
   PRIMARY KEY (id)
 );
 
 -- Insert a set of records.
-INSERT INTO burgers (burger) VALUES ('Gone with the Cheese');
+INSERT INTO burgers (burger, eaten) VALUES ('Gone with the Cheese', 'false');
