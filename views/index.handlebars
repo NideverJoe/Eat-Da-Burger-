@@ -1,0 +1,45 @@
+<div class="row text-center">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+<img src="http://clipart-library.com/img1/1241290.png" alt="" style="width: 50%">
+<h1>Eat-Da-Burger</h1>
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+<br>
+<br><br>
+<div class="row text-center">
+    <div class="col-md-4">
+<div>
+    <p>Burger List - To Be Eaten...</p>
+  {{#each burgers}}
+
+  	   <p>{{this.id}}   |   {{this.burger}}</p>
+
+  {{/each}}
+</div>
+
+    </div>
+    <div class="col-md-4">
+<h3>Enter a burger you want to eat. Click the Submit Button!</h3>
+<form action="/" method="POST">
+	<textarea type="text" name="task"></textarea>
+
+	<button type="submit">Submit</button>
+    </div>
+    <div class="col-md-4">
+<ul>
+  {{#each burgers}}
+  	<li>
+  	   <p>ID: {{this.id}}</p>
+       <p>Burger: {{this.burger}}</p>
+  	</li>
+  {{/each}}
+</ul>
+
+    </div>
+</div>
+
+
+</form>
