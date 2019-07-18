@@ -56,9 +56,9 @@ app.post("/api/burgers", function(req, res) {
   });
 });
 
-// Update a burger
-app.put("/api/burgers/:id", function(req, res) {
-  connection.query("UPDATE burgers SET eaten = ? WHERE id = ?", [1, this.data-id], function(err, result) {
+// Eat a burger
+app.post("/api/burgers/:id", function(req, res) {
+  connection.query("UPDATE burgers SET eaten = ? WHERE id = ?", [1, req.params.id], function(err, result) {
     if (err) {
       // If an error occurred, send a generic server failure
       return res.status(500).end();
@@ -72,21 +72,6 @@ app.put("/api/burgers/:id", function(req, res) {
   });
 });
 
-// // Delete a burger
-// app.delete("/api/burgers/:id", function(req, res) {
-//   connection.query("DELETE FROM burgers WHERE id = ?", [req.params.id], function(err, result) {
-//     if (err) {
-//       // If an error occurred, send a generic server failure
-//       return res.status(500).end();
-//     }
-//     else if (result.affectedRows === 0) {
-//       // If no rows were changed, then the ID must not exist, so 404
-//       return res.status(404).end();
-//     }
-//     res.status(200).end();
-
-//   });
-// });
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

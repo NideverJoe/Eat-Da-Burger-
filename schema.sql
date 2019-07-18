@@ -13,7 +13,6 @@ To run this file, we do the following in our Terminal:
 -- Drops the moviePlannerDB if it already exists --
 DROP DATABASE IF EXISTS BurgerDB;
 
--- Create the database moviePlannerDB and specified it for use.
 CREATE DATABASE BurgerDB;
 
 USE BurgerDB;
@@ -21,10 +20,11 @@ USE BurgerDB;
 -- Create the table movies.
 CREATE TABLE burgers (
   id int NOT NULL AUTO_INCREMENT,
-  burger varchar(255) NOT NULL,
-  eaten boolean not NULL,
+  burger varchar(255)  NOT NULL,
+  eaten boolean DEFAULT 0 not NULL,
   PRIMARY KEY (id)
 );
 
 -- Insert a set of records.
-INSERT INTO burgers (burger, eaten) VALUES ('Gone with the Cheese', 'false');
+INSERT INTO burgers (burger, eaten) VALUES ('Gone with the Cheese', 0);
+INSERT INTO burgers (burger, eaten) VALUES ('Lookin Buff-alo', 1);
