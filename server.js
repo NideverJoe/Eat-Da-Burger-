@@ -23,6 +23,7 @@ var host;
 
 if (process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWDDB_URL);
+  host = 'q57yawiwmnaw13d2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
 } else {
  connection = mysql.createConnection({
   host: "localhost",
