@@ -23,7 +23,6 @@ var host;
 
 if (process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWDDB_URL);
-  host = 'JAWSDB';
 } else {
  connection = mysql.createConnection({
   host: "localhost",
