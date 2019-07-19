@@ -25,7 +25,7 @@ if (process.env.JAWSDV_URL){
   user: "root",
   password: "Iamr00t",
   database: "BurgerDB"
-});
+})};
 
 connection.connect(function(err) {
   if (err) {
@@ -81,4 +81,5 @@ app.post("/api/burgers/:id", function(req, res) {
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
-});
+})
+
