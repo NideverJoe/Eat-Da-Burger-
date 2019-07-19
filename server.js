@@ -1,6 +1,9 @@
+require("dotenv").config();
+
 var express = require("express");
 var exphbs = require("express-handlebars");
 var mysql = require("mysql");
+
 
 var app = express();
 
@@ -16,15 +19,18 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 var connection;
+var host;
+
 if (process.env.JAWSDV_URL){
   connection = mysql.createConnection(process.env.JAWDDB_URL);
+  host = 'JAWSDB';
 } else {
  connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
-  user: "root",
-  password: "Iamr00t",
-  database: "BurgerDB"
+  user: process.env.user,
+  password: process.env.password,
+  database: process.env.database
 })};
 
 connection.connect(function(err) {
