@@ -4,7 +4,7 @@ Deployed on Heroku
 https://eat-da-burger-nidever.herokuapp.com/
 
 ## Purpose
-#### CRUD Demo App
+#### CRUD/Handlebars Demo App
 
 ## Technologies Used
 * javascript
@@ -12,6 +12,7 @@ https://eat-da-burger-nidever.herokuapp.com/
 * node.js
 * mySQL.js
 * Express Server
+* Handlebars
   
 ## Overview
 * User creates burger using middle field.
